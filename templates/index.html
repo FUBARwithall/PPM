@@ -1,157 +1,175 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %} Halaman Homepage {% endblock %}
+{% block title %}Halaman Homepage{% endblock %}
 
 {% block content %}
-    <!-- Hero Section -->
-    <section
-      id="menu"
-      class="py-5"
-      style="
-        background-image: url('/static/images/BG Homepage.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 75vh;
-        color: white;
-        text-align: center;
-        display: flex;
-        align-items: center;
-      "
-    >
-      <div class="container">
-        <h1 class="display-4 fw-bold">Selamat Datang di UMKM Catering</h1>
-        <p class="lead mb-4">
-          Menyediakan layanan catering profesional dengan cita rasa yang
-          memuaskan untuk setiap acara Anda.
-        </p>
-        <a href="#menu" class="btn btn-primary btn-lg">Lihat Menu</a>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section
+    id="menu"
+    class="py-5"
+    style="
+      background-image: url('/static/images/BG Homepage.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 85vh;
+      color: white;
+      text-align: center;
+      display: flex;
+      align-items: center;
+    "
+  >
+    <div class="container">
+      <h1 class="display-4 fw-bold">Selamat Datang di UMKM Catering</h1>
+      <p class="lead mb-4 fw-bold">
+        Menyediakan layanan catering profesional dengan cita rasa yang memuaskan untuk setiap acara Anda.
+      </p>
+      <a href="#menu" class="btn btn-lg" style="background-color: #ff9800; color: white">Lihat Menu</a>
+    </div>
+  </section>
 
-    <!-- Menu Section -->
-    <section id="menu" class="py-5">
-      <div class="container">
-        <h2 class="mb-4 text-center">Menu Kami</h2>
-        <div class="row g-4">
-          <!-- Contoh item menu -->
-          <div class="col-md-4">
-            <div class="card h-100">
-              <img
-                src="https://source.unsplash.com/400x300/?food,rice"
-                class="card-img-top"
-                alt="Nasi Box"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Nasi Box</h5>
-                <p class="card-text">
-                  Paket nasi lengkap dengan lauk pauk dan sayur segar, cocok
-                  untuk acara formal dan santai.
-                </p>
+  <!-- About Section -->
+  <section id="about" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">Tentang Kami</h2>
+      <p class="text-center mx-auto" style="max-width: 700px">
+        UMKM Catering berdiri sejak tahun 2015 dengan misi memberikan layanan catering berkualitas tinggi yang memprioritaskan rasa dan kepuasan pelanggan. Kami melayani berbagai jenis acara seperti ulang tahun, rapat, pesta pernikahan, dan acara perusahaan dengan profesionalisme dan dedikasi tinggi.
+      </p>
+    </div>
+  </section>
+
+  <!-- Menu Carousel Section -->
+  <section id="menu" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Menu Kami</h2>
+      <div id="menuCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- Carousel Slide 1 -->
+          <div class="carousel-item active">
+            <div class="card-group">
+              <div class="card">
+                <img class="card-img-top" src="/static/images/Bread pudding.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="/static/images/Kue buah.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="/static/images/Tart buah.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card h-100">
-              <img
-                src="{{ url_for('static', filename='images/Bread pudding.jpg') }}"
-                class="card-img-top"
-                alt="Salad Segar"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Bread pudding</h5>
-                <p class="card-text">
-                  Pudding roti tawar yang enak, cocok untuk anak-anak dan acara
-                  spesial.
-                </p>
+          <!-- Carousel Slide 2 -->
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card h-100">
-              <img
-                src="https://source.unsplash.com/400x300/?food,cake"
-                class="card-img-top"
-                alt="Kue dan Dessert"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Kue dan Dessert</h5>
-                <p class="card-text">
-                  Beragam pilihan kue dan dessert manis yang menggugah selera,
-                  sempurna untuk penutup acara.
-                </p>
+              <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5 bg-light">
-      <div class="container">
-        <h2 class="mb-4 text-center">Tentang Kami</h2>
-        <p class="text-center mx-auto" style="max-width: 700px">
-          UMKM Catering berdiri sejak tahun 2015 dengan misi memberikan layanan
-          catering berkualitas tinggi yang memprioritaskan rasa dan kepuasan
-          pelanggan. Kami melayani berbagai jenis acara seperti ulang tahun,
-          rapat, pesta pernikahan, dan acara perusahaan dengan profesionalisme
-          dan dedikasi tinggi.
-        </p>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-      <div class="container">
-        <h2 class="mb-4 text-center">Kontak Kami</h2>
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <ul class="list-unstyled text-center mb-4">
-              <li><strong>Alamat:</strong> Jl. Contoh No. 123, Jakarta</li>
-              <li><strong>Telepon:</strong> (021) 1234 5678</li>
-              <li><strong>Email:</strong> info@umkmcatering.com</li>
-              <li><strong>Instagram:</strong> @umkmcatering</li>
-            </ul>
-            <form>
-              <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Masukkan nama Anda"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Masukkan email Anda"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="message" class="form-label">Pesan</label>
-                <textarea
-                  class="form-control"
-                  id="message"
-                  rows="4"
-                  placeholder="Tulis pesan Anda"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary w-100">
-                Kirim Pesan
-              </button>
-            </form>
-          </div>
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#menuCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#menuCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
         </div>
       </div>
-    </section>
 
-  
+
+      <!-- Load Bootstrap Icons (Place in <head> ideally) -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+      <!-- Inline CSS -->
+      <style>
+        .carousel-indicators {
+          display: flex;
+          justify-content: center;
+          padding: 0;
+          margin: -20px 0;
+          list-style: none;
+        }
+        .carousel-indicators [data-bs-target] {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #6c757d;
+          opacity: 0.5;
+          border: none;
+          margin: 0 4px;
+          transition: opacity 0.3s, background-color 0.3s;
+        }
+        .carousel-indicators .active {
+          opacity: 1;
+          background-color: #212529;
+        }
+        .card-img-top {
+          width: auto;
+          height: 260px;
+          object-fit: cover;
+        }
+      </style>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Kontak Kami</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <ul class="list-unstyled text-center mb-4">
+            <li><strong>Alamat:</strong> Jl. Contoh No. 123, Jakarta</li>
+            <li><strong>Telepon:</strong> (021) 1234 5678</li>
+            <li><strong>Email:</strong> info@umkmcatering.com</li>
+            <li><strong>Instagram:</strong> @umkmcatering</li>
+          </ul>
+          <!-- Contact Form -->
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nama</label>
+              <input type="text" class="form-control" id="name" placeholder="Masukkan nama Anda" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Pesan</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Tulis pesan Anda" required></textarea>
+            </div>
+            <button type="submit" class="btn w-100" style="background-color: #ff9800; color: white">Kirim Pesan</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
