@@ -63,153 +63,81 @@
   </div>
 </section>
 
-<!-- Menu Carousel Section -->
 <section id="menu" class="py-5">
   <div class="container">
     <h2 class="mb-4 text-center">Menu Kami</h2>
     <div id="menuCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <!-- Carousel Slide 1 -->
-        <div class="carousel-item active">
+        {% for slide in products|batch(3, fill_with=None) %}
+        <div class="carousel-item {% if loop.first %}active{% endif %}">
           <div class="card-group">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="/static/images/Bread pudding.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
+            {% for product in slide %}
+              {% if product %}
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="{{ url_for('static', filename=product.image_url) }}"
+                  alt="{{ product.name }}"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.description }}</p>
+                </div>
               </div>
-            </div>
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="/static/images/Kue buah.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
-                </p>
-              </div>
-            </div>
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="/static/images/Tart buah.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This card has even longer
-                  content than the first to show that equal height action.
-                </p>
-              </div>
-            </div>
+              {% else %}
+              <!-- Empty card placeholder if needed -->
+              <div class="card" style="visibility:hidden;"></div>
+              {% endif %}
+            {% endfor %}
           </div>
         </div>
-        <!-- Carousel Slide 2 -->
-        <div class="carousel-item">
-          <div class="card-group">
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap" />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap" />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
-                </p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap" />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This card has even longer
-                  content than the first to show that equal height action.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
+
       <!-- Carousel Indicators -->
       <div class="carousel-indicators">
+        {% for slide in products|batch(3, fill_with=None) %}
         <button
           type="button"
           data-bs-target="#menuCarousel"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
+          data-bs-slide-to="{{ loop.index0 }}"
+          class="{% if loop.first %}active{% endif %}"
+          aria-current="{% if loop.first %}true{% else %}false{% endif %}"
+          aria-label="Slide {{ loop.index }}"
         ></button>
-        <button
-          type="button"
-          data-bs-target="#menuCarousel"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
+        {% endfor %}
       </div>
     </div>
-
-    <!-- Load Bootstrap Icons (Place in <head> ideally) -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-
-    <!-- Inline CSS -->
-    <style>
-      .carousel-indicators {
-        display: flex;
-        justify-content: center;
-        padding: 0;
-        margin: -20px 0;
-        list-style: none;
-      }
-      .carousel-indicators [data-bs-target] {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #6c757d;
-        opacity: 0.5;
-        border: none;
-        margin: 0 4px;
-        transition: opacity 0.3s, background-color 0.3s;
-      }
-      .carousel-indicators .active {
-        opacity: 1;
-        background-color: #212529;
-      }
-      .card-img-top {
-        width: auto;
-        height: 260px;
-        object-fit: cover;
-      }
-    </style>
   </div>
+
+  <!-- Inline CSS -->
+  <style>
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: -20px 0;
+      list-style: none;
+    }
+    .carousel-indicators [data-bs-target] {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #6c757d;
+      opacity: 0.5;
+      border: none;
+      margin: 0 4px;
+      transition: opacity 0.3s, background-color 0.3s;
+    }
+    .carousel-indicators .active {
+      opacity: 1;
+      background-color: #212529;
+    }
+    .card-img-top {
+      width: auto;
+      height: 260px;
+      object-fit: cover;
+    }
+  </style>
 </section>
 {% endblock %}
