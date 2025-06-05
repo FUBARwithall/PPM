@@ -12,9 +12,9 @@ db = SQLAlchemy(app)
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    price = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(200))
-    image_url = db.Column(db.String(200))  # Relative path to static/images/
+    image_url = db.Column(db.String(200))
+    harga = db.Column(db.String(255))
 
 with app.app_context():
     db.create_all()
@@ -27,6 +27,14 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/menu')
+def menu():
+    return render_template('menu.html')
+
+@app.route('/layanan')
+def layanan():
+    return render_template('layanan.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():

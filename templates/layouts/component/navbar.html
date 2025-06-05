@@ -1,21 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark shadow" style="background: linear-gradient(90deg, #ff9800 70%, #ffb74d 100%); position: fixed; top: 0; width: 100%; z-index: 999; border-bottom-left-radius: 18px; border-bottom-right-radius: 18px;">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: #B2CEFE; position: fixed; top: 0; width: 100%; z-index: 999; ">
   <div class="container-fluid px-4 py-2">
-    <a class="navbar-brand fw-bold fs-4" href="{{ url_for('index') }}">UMKM Catering</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand fw-bold fs-4" href="{{ url_for('index') }}" style="padding-left: 20px;">Kue^Q</a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link px-3" href="{{ url_for('index') }}">Beranda</a>
+          <a class="nav-link px-3" href="{{ url_for('menu') }}">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="{{ url_for('layanan') }}">Layanan</a>
         </li>
         <li class="nav-item">
           <a class="nav-link px-3" href="{{ url_for('about') }}">Tentang Kami</a>
