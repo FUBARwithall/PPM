@@ -1,17 +1,79 @@
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/base.html' %} {% block title %}Halaman Homepage{% endblock
+%} {% block content %}
+<section
+  class="py-5"
+  style="
+    background: url('/static/images/Cookies.jpg') center center/cover no-repeat;
+    height: 500px;
+    position: relative;
+  "
+>
+  <div
+    class="container text-center text-white d-flex flex-column justify-content-center align-items-center"
+    style="height: 100%"
+  >
+    <h1
+      class="display-4 fw-bold"
+      style="text-shadow: 2px 2px 4px #000, 0 0 2px #fff"
+    >
+      Tentang Kami
+    </h1>
+    <p class="lead fw-bold" style="text-shadow: 1px 1px 3px #000, 0 0 1px #fff">
+      Menyajikan rasa, melayani dengan hati.
+    </p>
+  </div>
+</section>
 
-{% block title %} Halaman Homepage {% endblock %}
+<!-- Choosing Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Bagian Kiri: Foto -->
+      <div class="col-md-6 mb-4 mb-md-0 text-center">
+        <img
+          src="{{ url_for('static', filename='images/baking.jpg') }}"
+          alt="Foto Catering"
+          class="img-fluid rounded"
+          style="max-width: 100%; height: 350px"
+        />
+      </div>
 
-{% block content %}
-
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="mb-4 text-center">Tentang Kami</h2>
-      <p class="text-center mx-auto" style="max-width: 700px;">
-        UMKM Catering berdiri sejak tahun 2015 dengan misi memberikan layanan catering berkualitas tinggi yang
-        memprioritaskan rasa dan kepuasan pelanggan. Kami melayani berbagai jenis acara seperti ulang tahun, rapat,
-        pesta pernikahan, dan acara perusahaan dengan profesionalisme dan dedikasi tinggi.
-      </p>
+      <!-- Bagian Kanan: Daftar Alasan -->
+      <div class="col-md-6">
+        <div style="margin-left: 30px;">
+          <h2 class="mb-4 fw-bold">Alasan Kenapa Memilih Kami:</h2>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Berpengalaman sejak 2015</strong>
+            </li>
+            <p>
+              – Memberikan layanan catering berkualitas tinggi selama hampir
+              satu dekade.
+            </p>
+            <li>
+              <strong>Beragam Layanan</strong>
+            </li>
+            <p>
+              – Siap menangani ulang tahun, rapat, pesta pernikahan, hingga
+              acara perusahaan.
+            </p>
+            <li>
+              <strong>Rasa Juara</strong>
+            </li>
+            <p>
+              – Setiap hidangan kami dibuat dengan resep autentik dan bahan
+              pilihan.
+            </p>
+            <li>
+              <strong>Kepuasan Pelanggan</strong>
+            </li>
+            <p>
+              – Profesionalisme dan dedikasi tinggi menjadi standar utama kami.
+            </p>
+          </ul>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 {% endblock %}
