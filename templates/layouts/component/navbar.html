@@ -1,6 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background: #B2CEFE; position: fixed; top: 0; width: 100%; z-index: 999; ">
+<nav
+  class="navbar navbar-expand-lg navbar-dark"
+  style="
+    background: #b2cefe;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  "
+>
   <div class="container-fluid px-4 py-2">
-    <a class="navbar-brand fw-bold fs-4" href="{{ url_for('index') }}" style="padding-left: 20px;">Kue^Q</a>
+    <a
+      class="navbar-brand fw-bold fs-4"
+      href="{{ url_for('index') }}"
+      style="padding-left: 20px"
+      ><img
+        src="{{ url_for('static', filename='images/Logo.png') }}"
+        style="height: 40px; width: 130px;" 
+        alt="Logo"
+    /></a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
@@ -10,7 +27,9 @@
           <a class="nav-link px-3" href="{{ url_for('layanan') }}">Layanan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-3" href="{{ url_for('about') }}">Tentang Kami</a>
+          <a class="nav-link px-3" href="{{ url_for('about') }}"
+            >Tentang Kami</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link px-3" href="{{ url_for('contact') }}">Kontak</a>
@@ -27,7 +46,8 @@
     margin-left: 4px;
     margin-right: 4px;
   }
-  .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
     background: #fff3e0;
     color: #ff9800 !important;
   }

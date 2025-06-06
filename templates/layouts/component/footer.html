@@ -3,20 +3,20 @@
     <div class="container">
       <h5 class="fw-bold mb-3">Kontak Kami</h5>
       <p class="mb-2 small">
-        UMKM Catering menyediakan layanan katering terbaik dengan bahan
+        Kue^Q Snack, cake and cookies menyediakan layanan katering terbaik dengan bahan
         berkualitas dan harga terjangkau. Kami siap melayani berbagai kebutuhan
         acara Anda.
       </p>
       <p class="mb-3 small">
-        <strong>Alamat:</strong> Jl. Contoh No. 123, Jakarta
+        <strong>Alamat:</strong> Jl Kresna Gang 2 No 1 RT 04 RW 06, Kejambon, Tegal Timur, Kota Tegal
       </p>
 
       <!-- Ikon-ikon horizontal di tengah -->
-      <div class="d-flex justify-content-center gap-4 fs-5" style="margin-bottom: -25px">
-        <a href="tel:02112345678" class="text-white"
+      <div class="d-flex justify-content-center gap-4 fs-5 custom-margin">
+        <a href="tel:02112345678" class="text-white" target="_blank"
           ><i class="bi bi-telephone-fill"></i
         ></a>
-        <a href="mailto:info@umkmcatering.com" class="text-white"
+        <a href="mailto:info@umkmcatering.com" class="text-white" target="_blank"
           ><i class="bi bi-envelope-fill"></i
         ></a>
         <a
@@ -30,12 +30,17 @@
   </section>
   <div class="container py-2">
     <hr class="border-light opacity-50 my-2" />
-    <small>&copy; 2025 Kue^Q. Semua hak cipta dilindungi.</small>
+    <small>&copy; <span id="currentYear"></span> Kue^Q. Semua hak cipta dilindungi.</small>
+    <script>
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
   </div>
 </footer>
-
 <style>
   footer a:hover {
     color: #fff700;
+  }
+  .custom-margin {
+    margin-bottom: -25px;
   }
 </style>

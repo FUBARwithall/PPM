@@ -39,7 +39,7 @@
           setiap sajian.
         </p>
       </div>
-      <div class="col-md-4 mb-4 border-start border-end">
+      <div class="col-md-4 mb-4 border-start border-end border-dark">
         <div style="font-size: 48px">🥗</div>
         <h5 class="mt-2">Bahan Berkualitas</h5>
         <p class="text-muted">
@@ -89,7 +89,7 @@
 
       <!-- Carousel Indicators -->
       <div class="carousel-indicators">
-        {% for slide in products|batch(3, fill_with=None) %}
+        {% for slide in products|batch(4, fill_with=None) %}
         <button
           type="button"
           data-bs-target="#menuCarousel"
@@ -138,6 +138,7 @@
     }
     .card-group {
       display: flex;
+      flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
     }
@@ -145,8 +146,11 @@
       background: #FEA3AA;
       border-radius: 8px;
       overflow: hidden;
-      width: 200px;
+      width: 45%; /* Ganti dari 200px ke persentase */
+      min-width: 150px;
+      max-width: 200px;
       outline: black solid 1px;
+      flex-grow: 1;
     }
     .product-card:hover {
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -183,5 +187,60 @@
       margin: 0;
     }
   </style>
+</section>
+
+<!-- Acara Section -->
+<section id="acara" class="py-5" style="background-color: #BAED91;">
+  <div class="container">
+    <h2 class="mb-5 text-center">Pilihan Katering untuk Berbagai Acara</h2>
+
+    <!-- Acara Informal -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6">
+        <h3>Acara Informal</h3>
+        <p>Pilihan menu santai untuk arisan, ulang tahun, reuni, atau kumpul keluarga.</p>
+      </div>
+      <div class="col-md-6">
+        <img 
+          src="{{ url_for('static', filename='images/Informal.jpg') }}" 
+          class="img-fluid rounded shadow" 
+          alt="Acara Informal"
+          style="width: 100%; max-height: 250px; object-fit: cover;"
+        >
+      </div>
+    </div>
+
+    <!-- Konferensi -->
+    <div class="row align-items-center mb-5 flex-md-row-reverse">
+      <div class="col-md-6">
+        <h3>Konferensi</h3>
+        <p>Menu praktis dan elegan untuk seminar, rapat, workshop, atau acara kantor.</p>
+      </div>
+      <div class="col-md-6">
+        <img 
+          src="{{ url_for('static', filename='images/Konferensi.jpg') }}" 
+          class="img-fluid rounded shadow" 
+          alt="Konferensi"
+          style="width: 100%; max-height: 250px; object-fit: cover;"
+        >
+      </div>
+    </div>
+
+    <!-- Pengajian -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6">
+        <h3>Pengajian</h3>
+        <p>Hidangan khusus untuk acara keagamaan, pengajian, atau syukuran bersama.</p>
+      </div>
+      <div class="col-md-6">
+        <img 
+          src="{{ url_for('static', filename='images/Ngaji.jpg') }}" 
+          class="img-fluid rounded shadow" 
+          alt="Pengajian"
+          style="width: 100%; max-height: 250px; object-fit: cover;"
+        >
+      </div>
+    </div>
+  </div>
 </section>
 {% endblock %}
