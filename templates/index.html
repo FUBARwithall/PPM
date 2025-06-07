@@ -9,11 +9,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(white, #BAED91);
+    background: linear-gradient(white, #baed91);
   "
 >
   <div class="container">
-    <h1 class="display-4 fw-bold" style="padding-top: 50px; padding-bottom: 40px">
+    <h1
+      class="display-4 fw-bold"
+      style="padding-top: 50px; padding-bottom: 40px"
+    >
       Katering Berkualitas Pilihan untuk Acara
     </h1>
   </div>
@@ -26,10 +29,19 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="py-5" style="background-color: #BAED91;">
-  <div class="container">
+<section id="about" class="py-5" style="background-color: #baed91">
   <div class="container" style="padding-top: 20px">
     <h2 class="mb-4 text-center">Tentang Kami</h2>
+    <p class="text-center mb-4">
+      Snack^Q Snack, Cake, and Cookies adalah layanan katering profesional yang
+      berfokus pada penyediaan aneka jajanan, kue, dan cookies berkualitas
+      tinggi untuk berbagai kebutuhan acara di Tegal dan sekitarnya. Kami
+      berkomitmen untuk menghadirkan sajian yang tidak hanya lezat dan higienis,
+      tetapi juga dikemas secara menarik dan sesuai standar industri katering
+      modern. Dengan pengalaman dan dedikasi tim kami, Snack^Q siap menjadi
+      mitra terpercaya untuk mendukung kesuksesan setiap momen spesial Anda,
+      baik untuk acara keluarga, perusahaan, maupun kegiatan keagamaan.
+    </p>
     <div class="row text-center">
       <div class="col-md-4 mb-4">
         <div style="font-size: 48px">👨‍🍳</div>
@@ -63,7 +75,7 @@
     <h2 class="mb-4 text-center">Menu Kami</h2>
     <div id="menuCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        {% for slide in products|batch(4, fill_with=None) %}
+        {% for slide in products|batch(3, fill_with=None) %}
         <div class="carousel-item {% if loop.first %}active{% endif %}">
           <div class="card-group">
             {% for product in slide %} {% if product %}
@@ -89,7 +101,7 @@
 
       <!-- Carousel Indicators -->
       <div class="carousel-indicators">
-        {% for slide in products|batch(4, fill_with=None) %}
+        {% for slide in products|batch(3, fill_with=None) %}
         <button
           type="button"
           data-bs-target="#menuCarousel"
@@ -100,6 +112,12 @@
         ></button>
         {% endfor %}
       </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="#menu" class="btn btn-dark px-4 py-2" style="margin-top: 25px"
+        >Menu lainnya</a
+      >
     </div>
   </div>
 
@@ -143,10 +161,9 @@
       justify-content: center;
     }
     .product-card {
-      background: #FEA3AA;
+      background: #fea3aa;
       border-radius: 8px;
       overflow: hidden;
-      width: 45%; /* Ganti dari 200px ke persentase */
       min-width: 150px;
       max-width: 200px;
       outline: black solid 1px;
@@ -189,56 +206,102 @@
   </style>
 </section>
 
+<section id="kustomisasi" class="py-5" style="background-color: #fdf6e3;">
+  <div class="container">
+    <h2 class="mb-4 text-center">Kustomisasi Box Jajan</h2>
+    <p class="text-center mb-5">
+      Sesuaikan isi box jajan sesuai kebutuhan acara Anda. Pilih dari berbagai
+      varian kue, snack, dan minuman untuk menciptakan paket yang pas di hati
+      dan di budget.
+    </p>
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename='images/Paket 1.jpg') }}"
+          class="img-fluid rounded shadow"
+          alt="Paket 1"
+          style="height: 200px; object-fit: cover; width: 100%;"
+        />
+      </div>
+      <div class="col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename='images/Paket 2.jpg') }}"
+          class="img-fluid rounded shadow"
+          alt="Paket 2"
+          style="height: 200px; object-fit: cover; width: 100%;"
+        />
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="#kontak" class="btn btn-dark px-4 py-2">
+        Diskusikan Kustom Box Anda
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- Acara Section -->
-<section id="acara" class="py-5" style="background-color: #BAED91;">
+<section id="acara" class="py-5" style="background-color: #baed91">
   <div class="container">
     <h2 class="mb-5 text-center">Pilihan Katering untuk Berbagai Acara</h2>
 
     <!-- Acara Informal -->
     <div class="row align-items-center mb-5">
       <div class="col-md-6">
-      <h3 class="fw-bold">Acara Informal</h3>
-      <p>Pilihan menu santai untuk arisan, ulang tahun, reuni, atau kumpul keluarga. Nikmati hidangan lezat yang cocok untuk suasana akrab dan penuh kehangatan.</p>
+        <h3 class="fw-bold">Acara Informal</h3>
+        <p>
+          Pilihan menu santai untuk arisan, ulang tahun, reuni, atau kumpul
+          keluarga. Nikmati hidangan lezat yang cocok untuk suasana akrab dan
+          penuh kehangatan.
+        </p>
       </div>
       <div class="col-md-6">
-      <img 
-        src="{{ url_for('static', filename='images/Informal.jpg') }}" 
-        class="img-fluid rounded shadow" 
-        alt="Acara Informal"
-        style="width: 100%; max-height: 250px; object-fit: cover;"
-      >
+        <img
+          src="{{ url_for('static', filename='images/Informal.jpg') }}"
+          class="img-fluid rounded shadow"
+          alt="Acara Informal"
+          style="width: 100%; max-height: 250px; object-fit: cover"
+        />
       </div>
     </div>
 
     <!-- Konferensi -->
     <div class="row align-items-center mb-5 flex-md-row-reverse">
       <div class="col-md-6">
-      <h3 class="fw-bold">Konferensi</h3>
-      <p>Menu praktis dan elegan untuk seminar, rapat, workshop, atau acara kantor. Sajian kami mendukung suasana profesional dan tetap menggugah selera.</p>
+        <h3 class="fw-bold">Konferensi</h3>
+        <p>
+          Menu praktis dan elegan untuk seminar, rapat, workshop, atau acara
+          kantor. Sajian kami mendukung suasana profesional dan tetap menggugah
+          selera.
+        </p>
       </div>
       <div class="col-md-6">
-      <img 
-        src="{{ url_for('static', filename='images/Konferensi.jpg') }}" 
-        class="img-fluid rounded shadow" 
-        alt="Konferensi"
-        style="width: 100%; max-height: 250px; object-fit: cover;"
-      >
+        <img
+          src="{{ url_for('static', filename='images/Konferensi.jpg') }}"
+          class="img-fluid rounded shadow"
+          alt="Konferensi"
+          style="width: 100%; max-height: 250px; object-fit: cover"
+        />
       </div>
     </div>
 
     <!-- Pengajian -->
     <div class="row align-items-center mb-5">
       <div class="col-md-6">
-      <h3 class="fw-bold">Pengajian</h3>
-      <p>Hidangan khusus untuk acara keagamaan, pengajian, atau syukuran bersama. Menu kami disiapkan dengan penuh perhatian dan cita rasa yang sesuai.</p>
+        <h3 class="fw-bold">Pengajian</h3>
+        <p>
+          Hidangan khusus untuk acara keagamaan, pengajian, atau syukuran
+          bersama. Menu kami disiapkan dengan penuh perhatian dan cita rasa yang
+          sesuai.
+        </p>
       </div>
       <div class="col-md-6">
-      <img 
-        src="{{ url_for('static', filename='images/Ngaji.jpg') }}" 
-        class="img-fluid rounded shadow"  
-        alt="Pengajian"
-        style="width: 100%; max-height: 250px; object-fit: cover;"
-      >
+        <img
+          src="{{ url_for('static', filename='images/Ngaji.jpg') }}"
+          class="img-fluid rounded shadow"
+          alt="Pengajian"
+          style="width: 100%; max-height: 250px; object-fit: cover"
+        />
       </div>
     </div>
   </div>
