@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///products.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'secret-key-untuk-flash'
@@ -38,21 +37,7 @@ def layanan():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
-        message = request.form.get('message')
-
-        # Validasi sederhana
-        if not name or not email or not message:
-            flash('Semua field wajib diisi!', 'danger')
-            return redirect(url_for('contact'))
-
-        # Di sini biasanya proses simpan ke database atau kirim email
-        flash('Pesan Anda telah terkirim. Terima kasih!', 'success')
-        return redirect(url_for('contact'))
-
     return render_template('contact.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
