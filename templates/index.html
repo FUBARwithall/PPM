@@ -31,7 +31,7 @@
 <!-- About Section -->
 <section id="about" class="py-5" style="background-color: #baed91">
   <div class="container" style="padding-top: 20px">
-    <h2 class="mb-4 text-center">Tentang Kami</h2>
+    <h2 class="mb-4 text-center fw-bold">Tentang Kami</h2>
     <p class="text-center mb-4">
       Snack^Q Snack, Cake, and Cookies adalah layanan katering profesional yang
       berfokus pada penyediaan aneka jajanan, kue, dan cookies berkualitas
@@ -70,9 +70,43 @@
   </div>
 </section>
 
+<section id="kustomisasi" class="py-5" style="background-color: #fdf6e3;">
+  <div class="container">
+    <h2 class="mb-4 text-center fw-bold">Kustomisasi Box Jajan</h2>
+    <p class="text-center mb-5">
+      Sesuaikan isi box jajan sesuai kebutuhan acara Anda. Pilih dari berbagai
+      varian kue, snack, dan minuman untuk menciptakan paket yang pas di hati
+      dan di budget.
+    </p>
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename='images/Paket 1.jpg') }}"
+          class="img-fluid rounded shadow"
+          alt="Paket 1"
+          style="height: 200px; object-fit: cover; width: 100%;"
+        />
+      </div>
+      <div class="col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename='images/Paket 2.jpg') }}"
+          class="img-fluid rounded shadow"
+          alt="Paket 2"
+          style="height: 200px; object-fit: cover; width: 100%;"
+        />
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="{{ url_for('contact') }}" class="btn btn-dark px-4 py-2">
+        Diskusikan Kustom Box Anda
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="menu" class="py-5">
   <div class="container">
-    <h2 class="mb-4 text-center">Menu Kami</h2>
+    <h2 class="mb-4 text-center fw-bold">Menu Kami</h2>
     <div id="menuCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         {% for slide in products|batch(3, fill_with=None) %}
@@ -115,7 +149,7 @@
     </div>
 
     <div class="text-center mt-4">
-      <a href="#menu" class="btn btn-dark px-4 py-2" style="margin-top: 25px"
+      <a href="{{ url_for('menu') }}" class="btn btn-dark px-4 py-2" style="margin-top: 25px"
         >Menu lainnya</a
       >
     </div>
@@ -206,44 +240,10 @@
   </style>
 </section>
 
-<section id="kustomisasi" class="py-5" style="background-color: #fdf6e3;">
-  <div class="container">
-    <h2 class="mb-4 text-center">Kustomisasi Box Jajan</h2>
-    <p class="text-center mb-5">
-      Sesuaikan isi box jajan sesuai kebutuhan acara Anda. Pilih dari berbagai
-      varian kue, snack, dan minuman untuk menciptakan paket yang pas di hati
-      dan di budget.
-    </p>
-    <div class="row justify-content-center">
-      <div class="col-md-4 mb-4">
-        <img
-          src="{{ url_for('static', filename='images/Paket 1.jpg') }}"
-          class="img-fluid rounded shadow"
-          alt="Paket 1"
-          style="height: 200px; object-fit: cover; width: 100%;"
-        />
-      </div>
-      <div class="col-md-4 mb-4">
-        <img
-          src="{{ url_for('static', filename='images/Paket 2.jpg') }}"
-          class="img-fluid rounded shadow"
-          alt="Paket 2"
-          style="height: 200px; object-fit: cover; width: 100%;"
-        />
-      </div>
-    </div>
-    <div class="text-center mt-4">
-      <a href="#kontak" class="btn btn-dark px-4 py-2">
-        Diskusikan Kustom Box Anda
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- Acara Section -->
 <section id="acara" class="py-5" style="background-color: #baed91">
   <div class="container">
-    <h2 class="mb-5 text-center">Pilihan Katering untuk Berbagai Acara</h2>
+    <h2 class="mb-5 text-center fw-bold">Pilihan Katering untuk Berbagai Acara</h2>
 
     <!-- Acara Informal -->
     <div class="row align-items-center mb-5">

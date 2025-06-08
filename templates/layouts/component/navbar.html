@@ -1,5 +1,5 @@
 <nav
-  class="navbar navbar-expand-lg navbar-dark"
+  class="navbar navbar-expand-lg"
   style="
     background: #b2cefe;
     position: fixed;
@@ -8,18 +8,33 @@
     z-index: 999;
   "
 >
-  <div class="container-fluid px-4 py-2">
-    <a
-      class="navbar-brand fw-bold fs-4"
-      href="{{ url_for('index') }}"
-      style="padding-left: 20px"
-      ><img
-        src="{{ url_for('static', filename='images/Logo.png') }}"
-        style="height: 40px; width: 130px;" 
-        alt="Logo"
-    /></a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+  <div class="container-fluid px-4 py-2 d-flex flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between align-items-center">
+      <!-- Logo -->
+      <a class="navbar-brand" href="{{ url_for('index') }}">
+        <img
+          src="{{ url_for('static', filename='images/Logo.png') }}"
+          alt="Logo"
+          style="height: 50px; width: 120px"
+        />
+      </a>
+
+      <!-- Toggler -->
+      <button
+        class="navbar-toggler ms-auto"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse w-100 mt-2 mt-lg-0" id="navbarNav">
+      <ul
+        class="navbar-nav w-100 flex-column flex-lg-row justify-content-lg-end"
+      >
         <li class="nav-item">
           <a class="nav-link px-3" href="{{ url_for('menu') }}">Menu</a>
         </li>
@@ -38,17 +53,46 @@
     </div>
   </div>
 </nav>
+
 <style>
   .navbar-nav .nav-link {
     color: #fff !important;
     transition: background 0.2s, color 0.2s;
     border-radius: 8px;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin: 4px 0;
   }
-  .navbar-nav .nav-link:hover,
-  .navbar-nav .nav-link.active {
-    background: #fff3e0;
-    color: #ff9800 !important;
+
+  /* Hover only on non-touch screens */
+  @media (hover: hover) {
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      background: #fff3e0;
+      color: #ff9800 !important;
+    }
+  }
+
+  .navbar-brand-custom {
+    margin-top: -12px;
+    margin-bottom: -12px;
+  }
+
+  @media (min-width: 992px) {
+    .container-fluid {
+      flex-direction: row !important;
+      align-items: center !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0 !important;
+    }
+
+    .navbar-nav {
+      flex-direction: row !important;
+      justify-content: flex-end;
+    }
+
+    .navbar-nav .nav-link {
+      margin: 0 4px;
+    }
   }
 </style>
